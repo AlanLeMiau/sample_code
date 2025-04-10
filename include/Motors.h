@@ -14,8 +14,8 @@
 #include "Sensors.h"
 
 typedef enum {
-    DIR_FORWARD,
-    DIR_BACKWARD,
+    DIR_BACKWARD, // Backward always is going to the start position
+    DIR_FORWARD, // Forward always is going to the end position
 } Motor_Direction;
 
 typedef enum
@@ -28,6 +28,8 @@ typedef enum
 {
     MOTOR_STATE_ATSTART,
     MOTOR_STATE_ATEND,
+    MOTOR_STATE_ATMIDDLE,
+    MOTOR_STATE_STOPPED,
     MOTOR_STATE_INMOTION,
     MOTOR_STATE_UNKNOWN,
 } Motor_State;
@@ -44,6 +46,7 @@ void Motors_init();
 void Motor_on(Motor_ID m, Motor_Direction dir);
 void Motor_off(Motor_ID m);
 void Motor_move_to(Motor_ID m, Motor_Position new_position);
+void Motor_set_state(Motor_ID m, Motor_State new_state);
 Motor_State Motor_get_state(Motor_ID m);
 
 #endif // MOTORS_H

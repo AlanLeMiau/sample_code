@@ -50,7 +50,7 @@ void Motor_move_to(Motor_ID m, Motor_Position new_position)
     
     if (motors_state_list[m] == MOTOR_STATE_INMOTION)
     {
-        return;
+        return; // we are in our way
     }
     
     if (((new_position == MOTOR_POSITION_START) && (motor_state == MOTOR_STATE_ATSTART)) ||
@@ -84,6 +84,32 @@ void Motor_move_to(Motor_ID m, Motor_Position new_position)
     }
 }
 
+void Motor_set_state(Motor_ID m, Motor_State new_state)
+{
+    if (m >= MOTORS_TOTAL)
+    {
+        return;
+    }
+    if(motors_state_list[m] == MOTOR_STATE_INMOTION)
+    {
+        return; // we are in our way
+    }
+    switch (new_state)
+    {
+        case MOTOR_STATE_ATSTART:
+        case MOTOR_STATE_ATEND:
+        case MOTOR_STATE_ATMIDDLE:
+            motors_state_list[m] = new_state;
+            break;
+        // These states can not be set directly
+        case MOTOR_STATE_STOPPED:
+        case MOTOR_STATE_INMOTION:
+        case MOTOR_STATE_UNKNOWN:
+        default:
+            break;
+    }
+}
+
 Motor_State Motor_get_state(Motor_ID m)
 {
     if (m >= MOTORS_TOTAL)
@@ -102,7 +128,7 @@ void Motor_off(Motor_ID m)
 
     Motor_t const *motor = &motors_list[m];
     HAL_GPIO_write_bit(motor->power.port, motor->power.pin, 0);
-    motors_state_list[m] = MOTOR_STATE_UNKNOWN;
+    motors_state_list[m] = MOTOR_STATE_STOPPED;
 }
 
 void Motor_on(Motor_ID m, Motor_Direction dir)
