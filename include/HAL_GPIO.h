@@ -1,3 +1,11 @@
+/**************************************************
+*	\    ^ ^ 	Project:		Sample Code
+*	 )  (="=)	Program name:	HAL_GPIO.h
+*	(  /   ) 	Author:			Alan Fuentes
+*	 \(__)|| 	                
+*                               
+**************************************************/
+
 #ifndef HAL_GPIO_H
 #define HAL_GPIO_H
 
@@ -32,6 +40,5 @@ void HAL_GPIO_init_input(HAL_GPIO_PORT port, uint8_t pin, uint8_t isPullup);
 void HAL_GPIO_init_input_mask(HAL_GPIO_PORT port, uint8_t mask, uint8_t isPullup);
 uint8_t HAL_GPIO_read_port(HAL_GPIO_PORT port);
 uint8_t HAL_GPIO_read_bit(HAL_GPIO_PORT port, uint8_t bit);
-
 
 #endif // HAL_GPIO_H

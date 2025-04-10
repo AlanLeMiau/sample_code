@@ -1,12 +1,9 @@
 /**************************************************
-*    \   ^ ^    Project:        Automatizacion de Sierra Cinta en Morelia
-*    )  (="=)   Program name:   maquinaFinal.ino
-*   (  /   )    Author:         Raul Avendaño
-*    \(__)||                    Daniel Cedillo
-*                               Alan Fuentes
-* Este programa automatiza el proceso de cortar trozoz de madera
-* ya sea rectos o en forma de trapecio de distintas longitudes
-* en un conjunto de tablas.
+*	\    ^ ^ 	Project:		Sample Code
+*	 )  (="=)	Program name:	Sensors.h
+*	(  /   ) 	Author:			Alan Fuentes
+*	 \(__)|| 	                
+*                               
 **************************************************/
 
 #include <avr/io.h>

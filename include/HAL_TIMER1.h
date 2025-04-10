@@ -1,3 +1,11 @@
+/**************************************************
+*	\    ^ ^ 	Project:		Sample Code
+*	 )  (="=)	Program name:	HAL_TIMER1.h
+*	(  /   ) 	Author:			Alan Fuentes
+*	 \(__)|| 	                
+*                               
+**************************************************/
+
 #ifndef HAL_TIMER_1_H
 #define HAL_TIMER_1_H
 

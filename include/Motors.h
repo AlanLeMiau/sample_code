@@ -1,12 +1,11 @@
 /**************************************************
-*	\    ^ ^ 	Project:		Automatizacion de Sierra Cinta en Morelia
-*	 )  (="=)	Program name:	Display.h
-*	(  /   ) 	Author:			Raul Avendaño
-*	 \(__)|| 	                Daniel Cedillo
-*                               Alan Fuentes
-* Driver for a Display with 6 digits, 3 up and 3 down
-* It means, each row can show max number = 999
+*	\    ^ ^ 	Project:		Sample Code
+*	 )  (="=)	Program name:	Motors.h
+*	(  /   ) 	Author:			Alan Fuentes
+*	 \(__)|| 	                
+*                               
 **************************************************/
+
 #ifndef MOTORS_H
 #define MOTORS_H
 
@@ -30,6 +29,8 @@ typedef enum {
 } Motor_ID;
 
 void Motors_init();
-
+void Motor_on(Motor_ID m);
+void Motor_off(Motor_ID m);
+void Motor_move_to(Motor_ID m, Motor_Position new_position);
 
 #endif // MOTORS_H

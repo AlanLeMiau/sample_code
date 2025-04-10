@@ -105,3 +105,15 @@ void Motor_off(Motor_ID m)
     HAL_GPIO_write_bit(motor->power.port, motor->power.pin, 0);
     motors_state_list[m] = MOTOR_STATE_UNKNOWN;
 }
+
+void Motor_on(Motor_ID m)
+{
+    if(m >= MOTORS_TOTAL)
+    {
+        return;
+    }
+
+    Motor_t const *motor = &motors_list[m];
+    HAL_GPIO_write_bit(motor->power.port, motor->power.pin, 1);
+    motors_state_list[m] = MOTOR_STATE_INMOTION;
+}

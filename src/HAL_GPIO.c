@@ -1,9 +1,8 @@
+
 #include <stdint.h>
 #include <stddef.h>
 #include <avr/io.h>
 #include "HAL_GPIO.h" 
-
-
 
 // Arrays of pointers to PORT, DDR, and PIN registers
 volatile uint8_t* const PORT_REGISTERS[HAL_GPIO_TOTAL_PORTS] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE, &PORTF, &PORTG, &PORTH, &PORTJ, &PORTK, &PORTL};
@@ -82,4 +81,3 @@ uint8_t HAL_GPIO_read_bit(HAL_GPIO_PORT port, uint8_t bit) {
     }
     return 0;
 }
-

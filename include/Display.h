@@ -1,12 +1,11 @@
 /**************************************************
-*	\    ^ ^ 	Project:		Automatizacion de Sierra Cinta en Morelia
+*	\    ^ ^ 	Project:		Sample Code
 *	 )  (="=)	Program name:	Display.h
-*	(  /   ) 	Author:			Raul Avendaño
-*	 \(__)|| 	                Daniel Cedillo
-*                               Alan Fuentes
-* Driver for a Display with 6 digits, 3 up and 3 down
-* It means, each row can show max number = 999
+*	(  /   ) 	Author:			Alan Fuentes
+*	 \(__)|| 	                
+*                               
 **************************************************/
+
 #ifndef DISPLAY_H
 #define DISPLAY_H
 

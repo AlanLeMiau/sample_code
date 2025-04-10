@@ -1,11 +1,4 @@
-/**************************************************
-*	\    ^ ^ 	Project:		Automatizacion de Sierra Cinta en Morelia
-*	 )  (="=)	Program name:	Display.cpp
-*	(  /   ) 	Author:			Raul Avendaño
-*	 \(__)|| 	                Daniel Cedillo
-*                               Alan Fuentes
-* Funciones asociadas a la libreria Display.h
-**************************************************/
+
 #include <stdint.h>
 #include "HAL_GPIO.h"
 #include "HAL_TIMER1.h"
