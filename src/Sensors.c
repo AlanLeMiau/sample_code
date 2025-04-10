@@ -73,6 +73,15 @@ int8_t Sensor_is_high(Sensor_ID s)
     return 0; // Sensor is low or unstable
 }
 
+int8_t Sensor_read_pin(Sensor_ID s)
+{
+    if(s >= SENSORS_TOTAL)
+    {
+        return 0;
+    }
+    return HAL_GPIO_read_bit(sensors_list[s].gpio.port, sensors_list[s].gpio.pin);
+}
+
 void Sensor_wait_for(Sensor_ID s)
 {
     if(s >= SENSORS_TOTAL)

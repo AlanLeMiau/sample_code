@@ -26,6 +26,6 @@ typedef enum {
 void Sensors_init();
 void Sensor_wait_for(Sensor_ID sensor_id);
 int8_t Sensor_is_high(Sensor_ID s);
-
+int8_t Sensor_read_pin(Sensor_ID s);
 
 #endif // SENSORS_H

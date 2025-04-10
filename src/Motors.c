@@ -4,16 +4,6 @@
 #include "Sensors.h"
 #include "Motors.h"
 
-#define DIR_FORWARD 1 // Forward always is going to the end position
-#define DIR_BACKWARD 0 // Backward always is going to the start position
-
-typedef enum
-{
-    MOTOR_STATE_ATSTART,
-    MOTOR_STATE_ATEND,
-    MOTOR_STATE_INMOTION,
-    MOTOR_STATE_UNKNOWN,
-} Motor_State;
 
 typedef struct Motor_t
 {
@@ -94,6 +84,15 @@ void Motor_move_to(Motor_ID m, Motor_Position new_position)
     }
 }
 
+Motor_State Motor_get_state(Motor_ID m)
+{
+    if (m >= MOTORS_TOTAL)
+    {
+        return MOTOR_STATE_UNKNOWN;
+    }
+    return motors_state_list[m];
+}
+
 void Motor_off(Motor_ID m)
 {
     if(m >= MOTORS_TOTAL)
@@ -106,7 +105,7 @@ void Motor_off(Motor_ID m)
     motors_state_list[m] = MOTOR_STATE_UNKNOWN;
 }
 
-void Motor_on(Motor_ID m)
+void Motor_on(Motor_ID m, Motor_Direction dir)
 {
     if(m >= MOTORS_TOTAL)
     {
@@ -114,6 +113,7 @@ void Motor_on(Motor_ID m)
     }
 
     Motor_t const *motor = &motors_list[m];
+    HAL_GPIO_write_bit(motor->direction.port, motor->direction.pin, dir);
     HAL_GPIO_write_bit(motor->power.port, motor->power.pin, 1);
     motors_state_list[m] = MOTOR_STATE_INMOTION;
 }
